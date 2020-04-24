@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block head %}
+<title>
+    Edit Champions
+</title>
+{% endblock %} {% block body %}
+<h1>Champions of the Realm</h1>
+<hr>
+<h2>Edit the current entry for {{post.title}}:</h2>
+<form action="/posts/edit/{{post.id}}" method="POST">
+    <br />
+    <label for="title">Name: </label>
+    <input class="form-control" type="text" name="title" id="title" value="{{post.title}}">
+    <br />
+    <label for="role">Role: </label>
+    <input class="form-control" type="text" name="role" id="role" value="{{post.role}}">
+    <br />
+    <label for="stats">Stats: </label>
+    <input class="form-control" type="text" name="stats" id="stats" value="{{post.stats}}">
+    <br />
+    <label for="content">Info or lore: </label>
+    <textarea class="form-control" name="content" id="content" rows="5">{{post.content}}</textarea>
+    <br />
+    <label for="abilities">Abilities or Skills: </label>
+    <textarea class="form-control" name="abilities" id="abilities" rows="5">{{post.abilities}}</textarea>
+    <br />
+    <label for="author">Author's name or Signature: </label>
+    <input class="form-control" type="text" name="author" id="author" value="{{post.author}}">
+    <br />
+    <input class="btn btn-primary" type="submit" value="Save Changes" />
+</form>
+
+<hr />
+<h2>{{post.title}}</h2>
+
+<p>Role: <br>{{post.role}}</p>
+<p>Stats: <br>{{post.stats}}</p>
+<p style="white-space: pre-wrap;">Info and story: <br>{{post.content}}</p>
+<p style="white-space: pre-wrap;">Abilities: <br>{{post.abilities}}</p>
+{% if post.author %}
+<small>Written by: {{post.author}} on {{post.postdate}}</small> {% else %}
+<small>Written by: Unknown on {{post.postdate}}</small> {% endif %}
+<hr /> {% endblock %}
