@@ -20,7 +20,18 @@
     <input class="form-control" type="text" name="title" id="title" value="{{post.title}}">
     <br />
     <label for="role">Role: </label>
-    <input class="form-control" type="text" name="role" id="role" value="{{post.role}}">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="role">Role:</label>
+        </div>
+        <select class="custom-select" id="role">
+            <option selected name="role" id="role">{{post.role}}</option>
+            <option name="role" id="role" value="Support">Support</option>
+            <option name="role" id="role" value="Frontline">Frontline</option>
+            <option name="role" id="role" value="Damage">Damage</option>
+            <option name="role" id="role" value="Flank">Flank</option>
+        </select>
+    </div>
     <br />
     <label for="stats">Stats: </label>
     <input class="form-control" type="text" name="stats" id="stats" value="{{post.stats}}">
@@ -41,7 +52,7 @@
     <label for=" author ">Author's name or Signature: </label>
     <input class="form-control " type="text " name="author " id="author " value="{{post.author}} ">
     <br />
-    <input class="btn btn-primary " type="submit " value="Save Changes " />
+    <input class="btn btn-primary" type="submit" value="Save Changes">
 </form>
 <hr>
 <div class="alert alert-danger" role="alert">

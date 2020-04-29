@@ -37,6 +37,7 @@ def index():
 
 @app.route('/posts', methods=['GET', 'POST'])
 def posts():
+  all_posts = Champion.query.order_by(Champion.name).all()
   if request.method == 'POST':
     post_name = request.form['name']
     post_title = request.form['title']
@@ -52,7 +53,6 @@ def posts():
     db.session.commit()
     return redirect('/posts')
   else: 
-    all_posts = Champion.query.order_by(Champion.name).all()
     return render_template('posts.html', posts=all_posts)
 
 @app.route('/posts/delete/<int:id>')
