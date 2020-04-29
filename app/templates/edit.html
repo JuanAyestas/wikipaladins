@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block head %}
+<title>
+    Edit Champions
+</title>
+{% endblock %} {% block body %}
+<hr>
+<div>
+    <h1 style="display: inline-block;">Champions of the Realm</h1>
+    <a style="margin-left: 10px; margin-top: 5px; margin-bottom: 5px;" class="btn btn-success float-md-right" href="/posts">Back to the list</a>
+    <a style="margin-right: 10px; margin-top: 5px; margin-bottom: 5px;" class="btn btn-secondary float-md-right" href="/">Back to home</a>
+</div>
+<hr>
+<h2>Edit the current entry for {{post.name}}:</h2>
+<form action="/posts/edit/{{post.id}}" method="POST">
+    <br />
+    <label for="name">Name: </label>
+    <input class="form-control" type="text" name="name" id="name" value="{{post.name}}">
+    <br />
+    <label for="title">Title: </label>
+    <input class="form-control" type="text" name="title" id="title" value="{{post.title}}">
+    <br />
+    <label for="role">Role: </label>
+    <input class="form-control" type="text" name="role" id="role" value="{{post.role}}">
+    <br />
+    <label for="stats">Stats: </label>
+    <input class="form-control" type="text" name="stats" id="stats" value="{{post.stats}}">
+    <br />
+    <label for="content">Info or lore: </label>
+    <textarea class="form-control" name="content" id="content" rows="5">{{post.content}}</textarea>
+    <br />
+    <label for="abilities">Abilities or Skills: </label>
+    <textarea class="form-control" name="abilities" id="abilities" rows="5">{{post.abilities}}</textarea>
+    <br />
+    <label for="portait">Picture url: </label>
+    <input class="form-control" type="text" name="portait" id="portait" value="{{post.portait}}">
+    <br/>
+    <div class="alert alert-danger" role="alert">
+        Leave the url like that, unless you want to change their picture.
+    </div>
+    <br />
+    <label for=" author ">Author's name or Signature: </label>
+    <input class="form-control " type="text " name="author " id="author " value="{{post.author}} ">
+    <br />
+    <input class="btn btn-primary " type="submit " value="Save Changes " />
+</form>
+<hr>
+<div class="alert alert-danger" role="alert">
+    This is how it looked previously, before the edit.
+</div>
+<hr />
+<h2>{{post.name}}</h2>
+
+<img class="w-25 p-3 h-25 float-right img-fluid img-thumbnail " src="{{post.portait}} " alt="{{post.name}} ">
+
+<p>Title: <br>{{post.title}}</p>
+<p>Role: <br>{{post.role}}</p>
+<p>Stats: <br>{{post.stats}}</p>
+<p style="white-space: pre-wrap; ">Info and story: <br>{{post.content}}</p>
+<p style="white-space: pre-wrap; ">Abilities: <br>{{post.abilities}}</p>
+{% if post.author %}
+<small>Written by: {{post.author}} on {{post.postdate}}</small> {% else %}
+<small>Written by: Unknown on {{post.postdate}}</small> {% endif %}
+<hr /> {% endblock %}

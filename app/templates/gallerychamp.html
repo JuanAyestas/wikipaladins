@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block head %}
+<title>{{post.name}}'s Gallery</title>
+
+{% endblock head %} {% block body %}
+<div>
+    <br/>
+    <h1 style="display:inline-block;">{{post.name}}'s gallery:</h1>
+    <a style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px;" class=" btn btn-success float-md-right" href="/posts ">Back to champions</a>
+    <a style="margin-right: 5px; margin-top: 10px; margin-bottom: 10px;" class="btn btn-secondary float-md-right" href="/">Back to home</a>
+</div>
+<hr>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col col-md">
+            {% for pic in pics %}
+            <hr>
+            <div class="col shadow inner">
+                <img src="{{pic.pic_add}}" class="d-block img-fluid" alt="{{post.name}}">
+            </div>{% endfor %}
+        </div>
+    </div>
+</div>
+<hr/> {% endblock body %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block head %}
+<title>Home</title>
+{% endblock %} {% block body %}
+<hr>
+<h1>Champions of the Realm</h1>
+<hr>
+<div class="jumbotron">
+    <h1 class="display-6">Welcome to the wiki!</h1>
+    <p class="lead"></p>
+</div>
+<hr>
+<div class="card mb-3 shadow">
+    <div class="inner">
+        <img class="card-img-top img-fluid" src="https://pbs.twimg.com/media/DNHWvGkW4AEcaMb.jpg" alt="Card image cap">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Our Champions</h5>
+        <p class="card-text"></p>
+        <a href="/posts" class="btn btn-primary">Check out the Champions</a>
+    </div>
+</div>
+<div class="card mb-3 shadow">
+    <div class="inner">
+        <img class="card-img-top img-fluid" src="https://wallpapercave.com/wp/wp1912718.jpg" alt="Card image cap">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Willing to help?</h5>
+        <p class="card-text"></p>
+        <a href="/create" class="btn btn-primary">Create a new entry</a>
+    </div>
+</div>
+<div class="card mb-3 shadow">
+    <div class="inner">
+        <img class="card-img-top img-fluid" src="https://i.pinimg.com/originals/42/df/d6/42dfd6b0477a872a54ae19db8af32177.jpg" alt="Card image cap">
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Want to see some art?</h5>
+        <p class="card-text"></p>
+        <a href="/gallery" class="btn btn-primary">Check out the gallery</a>
+    </div>
+</div>
+{% endblock %}

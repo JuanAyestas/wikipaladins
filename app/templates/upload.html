@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% block head %}
+<title>
+    Upload your picture
+</title>
+{% endblock head %} {% block body %}
+<div style="display: inline;">
+    <br/>
+    <h1 style="display: inline;">Upload a new picture: </h1>
+    <a style="margin-top: 5px; margin-bottom: 5px;" class="btn btn-secondary float-md-right" href="/posts">Back to Champions</a>
+    <a style="margin-right:10px; margin-top: 5px; margin-bottom: 5px;" class="btn btn-success float-md-right" href="/gallery">Back to Gallery</a>
+</div>
+<hr />
+
+<h3>Uploading a new picture for: {{post.name}}</h3>
+<form action="/posts/upload" method="POST">
+    <br/>
+
+    <label for="champion_id">Champion selected</label>
+    <input class="form-control" type="text" name="champion_id" id="champion_id" value="{{post.id}}" readonly/>
+
+    <hr />
+    <label for="pic_add">Picture url: </label>
+    <input class="form-control" type="text" name="pic_add" id="pic_add" placeholder="Enter picture's url" aria-label="Enter picture's url" />
+    <hr/>
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</form>
+
+{% endblock body %}

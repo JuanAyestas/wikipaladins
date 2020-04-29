@@ -1,0 +1,32 @@
+{% extends "base.html" %} {% block head %}
+<title>
+    All Champions
+</title>
+{% endblock %} {% block body %}
+<div>
+    <br/>
+    <h1 style="display:inline-block;">All the Champions</h1>
+    <a style="margin-bottom: 5px; margin-top: 5px;" class="btn btn-success float-md-right" href="/create">+ New entry</a>
+    <a style="margin-right: 10px; margin-bottom: 5px; margin-top: 5px;" class="btn btn-secondary float-md-right" href="/">Back to home</a>
+</div>
+
+<hr /> {% for post in posts %}
+<h2>{{post.name}}</h2>
+
+<img class="w-50 p-3 h-50 rounded float-right img-fluid img-thumbnail shadow" src="{{post.portait}}" alt="{{post.name}}">
+
+<p>{{post.title}}</p>
+<p>Role: <br>{{post.role}}</p>
+<p>Stats: <br>{{post.stats}}</p>
+<p style="white-space: pre-wrap;">Info and story: <br>{{post.content}}</p>
+<p style="white-space: pre-wrap;">Abilities: <br>{{post.abilities}}</p>
+<div>
+    <a style="margin: 10px 20px 10px 0px;" class="btn btn-primary" href="/posts/edit/{{post.id}} ">Edit entry</a>
+    <a style="margin: 10px 20px 10px 0px;" class="btn btn-danger" href="/posts/delete/{{post.id}} ">Delete entry</a>
+    <a style="margin: 10px 20px 10px 0px;" class="btn btn-success " href="/posts/upload/{{post.id}} ">Upload a picture</a>
+    <a style="margin-top: 10px; margin-bottom: 10px" class="btn btn-secondary" href="/gallery/{{post.id}} ">Check this Champion's gallery</a>
+</div>
+<br> {% if post.author %}
+<small>Written by: {{post.author}} on {{post.postdate}}</small> {% else %}
+<small>Written by: Unknown on {{post.postdate}}</small> {% endif %}
+<hr /> {% endfor %} {% endblock %}
